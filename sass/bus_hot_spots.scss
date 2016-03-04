@@ -1,0 +1,17 @@
+@import 'bootstrap/variables';
+@import 'bootstrap/mixins';
+
+.map_display {
+    @include make-xs-column(12);
+    height: 720px;
+}
+
+.location_input_wrapper {
+    @include make-xs-column(6);
+    margin: 20px 0;
+    padding: 0;
+}
+
+.disappear {
+    visibility: hidden;
+}

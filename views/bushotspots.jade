@@ -1,0 +1,38 @@
+extends layout
+
+block head_includes
+    link(rel='stylesheet', href='/stylesheets/bus_hot_spots.css')
+
+block content
+    div.container
+        div.title
+            h1 Bus hot spots
+        div.walking_radius
+            select.walking_radius_select
+                option(value="0.48") 15 mins
+
+        div.location_input_wrapper
+            div.input-group  
+                input(type="text", class="form-control", placeholder="Enter a location")
+                span.input-group-btn
+                    button(class="btn btn-default add_location_button", type="button") Go!
+    div.map_display
+
+block script_includes
+    // Managers
+    script(src="/scripts/Managers/GoogleMapsApiManager.js")
+    script(src="/scripts/Managers/AddressesManager.js")
+    script(src="/scripts/Managers/DrawingManager.js")
+    script(src="/scripts/Managers/StopsManager.js")
+    script(src="/scripts/Managers/RouteManager.js")
+    // Controllers
+    script(src="/scripts/inputController.js")
+    // Bootstrapper
+    script(src="/scripts/busHotSpots.js")
+    // Event listeners
+    script(src="/scripts/EventListeners/gotRoutesEventListener.js")
+    script(src="/scripts/EventListeners/gotAllStopsForAllRoutesEventListener.js")
+    script(src="/scripts/EventListeners/geocodedAddressEventListener.js")
+    script(src="/scripts/EventListeners/googleMapInitialisedEventListener.js")
+    // Google Maps API
+    script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYFqE3-uAi9QhIma5ohtkdclXqVmS_BV8&libraries=visualization&callback=googleMapsApiManager.initialiseGoogleMapsApi" async defer)
