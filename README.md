@@ -7,4 +7,6 @@ It includes the following:
 * A web application with a web interface to interact with google
   * The web application was made with NodeJS, Express and pure javascript for client side.
 
-Note that in order to use the web application you're going to have to load the information with the GTFS API for your country (if it's available).
+Note: In order to use this web app you'll need to do a several actions:
+1. Use the node-gtfs to load the data to your web app.
+2. go to ./views/bushotspots.jade and change the google API key there.
