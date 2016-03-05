@@ -12,7 +12,6 @@ var googleMapsApiManager = busMapping.GoogleMapsApiManager;
 var $locationInputWrapper = jQuery('.location_input_wrapper'),
     $mapDisplay = jQuery('.map_display');
 
-// TODO: Fix the input controller
 googleMapsApiManager.setMapDisplayElement($mapDisplay);
 inputController.init(addressesManager, drawingManager);
 inputController.bindAddLocationActions($locationInputWrapper);

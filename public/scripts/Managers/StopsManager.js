@@ -9,7 +9,7 @@
          * A constant for the API base of stops
          * @type {string}
          */
-        var STOPS_API_BASE = '/bus_hot_spots/stops';
+        var STOPS_API_BASE = '/bus_hot_spots/api/stops';
 
         /**
          * Contains the stops database, by route_id

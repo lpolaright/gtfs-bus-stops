@@ -9,7 +9,7 @@
          * A constant for the API base of routes
          * @type {string}
          */
-        var ROUTES_API_BASE = '/bus_hot_spots/routes';
+        var ROUTES_API_BASE = '/bus_hot_spots/api/routes';
 
         /**
          * Contains the route database, by location

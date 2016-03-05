@@ -55,6 +55,7 @@
          * @param {jQuery} $element
          */
         vm.addInputLocation = function ($element) {
+            // TODO: Get the template of the input from another place (preferrably the server partial).
             var $addInputLocation = jQuery(
                 '<div class="location_input_wrapper"><div class="input-group"><input type="text" placeholder="Enter a location" class="form-control"><span class="input-group-btn"><button type="button" class="btn btn-default add_location_button">Go!</button></span></div></div>'
             );
