@@ -4,6 +4,8 @@ function getMockedGoogleGeocoder() {
         'geocode'
     ]);
 
+    googleGeocoder.status = 3;
+
     googleGeocoder.geocode.and.callFake(function(request, handler) {
         var results = [
             {
@@ -16,9 +18,7 @@ function getMockedGoogleGeocoder() {
             }
         ];
 
-        var status = 3;
-
-        handler(results, status);
+        handler(results, googleGeocoder.status);
     });
 
     return googleGeocoder;
