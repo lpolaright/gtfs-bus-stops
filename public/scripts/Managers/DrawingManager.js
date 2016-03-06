@@ -12,6 +12,13 @@
         var _map;
 
         /**
+         * Google maps namespace
+         * @type {google.maps}
+         * @private
+         */
+        var _googleMapsNamespace;
+
+        /**
          * @type {int} the color offset
          * @private
          */
@@ -59,7 +66,8 @@
          */
         var drawCircle = function (center) {
             var drawingColor = _getDrawingColor();
-            return new google.maps.Circle({
+            var googleMapsNamespace = _getGoogleMapsNamespace();
+            return new googleMapsNamespace.Circle({
                 center: center,
                 map: _map,
                 fillColor: drawingColor,
@@ -75,10 +83,13 @@
          * Sets marker on map
          *
          * @param {google.maps.LatLng} latLng
+         * @returns {google.maps.Marker}
+         * @public
          */
         var setMarkerOnMap = function (latLng) {
             // TODO: consider saving markers in an array to later on fetch information on them
-            var marker = new google.maps.Marker({
+            var googleMapsNamespace = _getGoogleMapsNamespace();
+            return new googleMapsNamespace.Marker({
                 map: _map,
                 position: latLng
             });
@@ -92,17 +103,38 @@
          */
         var _getDrawingColor = function () {
             var drawingColor = '#000000';
-            if (_availableColors[_colorOffset - 1]) {
-                drawingColor = _availableColors[_colorOffset - 1];
+            if (_availableColors[_colorOffset]) {
+                drawingColor = _availableColors[_colorOffset];
             }
             return drawingColor;
+        };
+
+        /**
+         * Gets the google maps namespace
+         * @returns {google.maps}
+         * @private
+         */
+        var _getGoogleMapsNamespace = function() {
+            if (!_googleMapsNamespace) {
+                _googleMapsNamespace = google.maps;
+            }
+            return _googleMapsNamespace;
+        };
+
+        /**
+         * Sets the google maps namespace
+         * @param {google.maps} namespace
+         */
+        var setGoogleMapsNamespace = function(namespace) {
+            _googleMapsNamespace = namespace;
         };
 
         return {
             setMap: setMap,
             drawCircle: drawCircle,
             changeColor: changeColor,
-            setMarkerOnMap: setMarkerOnMap
+            setMarkerOnMap: setMarkerOnMap,
+            setGoogleMapsNamespace: setGoogleMapsNamespace
         };
     })();
 })(window.busMapping = window.busMapping || {});

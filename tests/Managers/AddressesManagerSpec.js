@@ -28,6 +28,9 @@ describe('Addresses Manager client side test', function () {
         });
     });
 
+    /**
+     * @covers RouteManager.geocodeAddress(), RouteManager.setGoogleGeocoder()
+     */
     describe('geocodeAddress', function() {
         it("should, when succeeding, do the appropriate expected behaviour", function() {
             var eventDispatched = undefined;
